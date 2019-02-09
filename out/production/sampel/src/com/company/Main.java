@@ -15,6 +15,7 @@ public class Main {
         char[] buffer = new char[20];
         try {
             int length = stdReader.read(buffer);
+            stdReader.close();
             System.out.println(length);
             System.out.println(buffer);
         } catch (IOException e) {
