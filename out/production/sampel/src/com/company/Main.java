@@ -40,7 +40,7 @@ public class Main {
         String context2 = "";
         String line = null;
         while ((line = bufferedReader.readLine()) != null) {
-            context2 += line;
+            context2 += line + "\n";
         }
 
         reader.close();
@@ -49,7 +49,7 @@ public class Main {
 
         System.out.println(context2);
         printWriter.print(context2);
-        
+
         printWriter.close();
         output.close();
 
