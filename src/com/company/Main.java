@@ -1,12 +1,10 @@
 package com.company;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //标准输出
         System.out.println("Java IO流 和异常处理");
         System.out.println("第二行这是");
@@ -22,5 +20,23 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //从一个文件读取内容 输出到另一个文件
+        FileInputStream input = new FileInputStream("input.txt");
+        FileOutputStream output = new FileOutputStream("output.txt");
+
+        InputStreamReader reader = new InputStreamReader(input, "UTF-8");
+        OutputStreamWriter writer = new OutputStreamWriter(output, "UTF-8");
+
+        BufferedReader bufferedReader = new BufferedReader(reader);
+        PrintWriter printWriter = new PrintWriter(writer);
+
+        String context = "";
+        for (String line = bufferedReader.readLine(); line != null; line = bufferedReader.readLine()) {
+            //处理这一行
+            context = context + line;
+        }
+
+        
     }
 }
