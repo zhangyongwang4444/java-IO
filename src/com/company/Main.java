@@ -6,7 +6,7 @@ import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         //标准输出
         System.out.println("Java IO流 和异常处理");
         System.out.println("第二行这是");
@@ -17,6 +17,15 @@ public class Main {
         char[] buffer = new char[20];
         try {
             int length = stdReader.read(buffer);
+            try {
+                if (length != 10) {
+                    throw new IllegalArgumentException();
+                }
+            } catch (IllegalArgumentException e) {
+                System.out.println("对不起，你输入的是错误的！");
+                return;
+            }
+
             stdReader.close();
             System.out.println(length);
             System.out.println(buffer);
@@ -62,5 +71,6 @@ public class Main {
         String content = FileUtils.readFileToString(inputfile);
         System.out.println("content");
         System.out.println(content);
+
     }
 }
