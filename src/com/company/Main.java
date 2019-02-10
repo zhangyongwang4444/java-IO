@@ -29,8 +29,8 @@ public class Main {
         InputStreamReader reader = new InputStreamReader(input, "UTF-8");
         OutputStreamWriter writer = new OutputStreamWriter(output, "UTF-8");
 
-        BufferedReader bufferedReader = new BufferedReader(reader);
-        PrintWriter printWriter = new PrintWriter(writer);
+//        BufferedReader bufferedReader = new BufferedReader(reader);
+//        PrintWriter printWriter = new PrintWriter(writer);
 
 //        String context = "";
 //        for (String line = bufferedReader.readLine(); line != null; line = bufferedReader.readLine()) {
@@ -38,20 +38,21 @@ public class Main {
 //            context += line;
 //        }
 
-        String context2 = "";
-        String line = null;
-        while ((line = bufferedReader.readLine()) != null) {
-            context2 += line + "\n";
-        }
+//        String context2 = "";
+//        String line = null;
+//        while ((line = bufferedReader.readLine()) != null) {
+//            context2 += line + "\n";
+//        }
 
+        int ch;
+        while ((ch = reader.read()) != -1) {
+            writer.write(ch);
+        }
         reader.close();
         input.close();
 
 
-        System.out.println(context2);
-        printWriter.print(context2);
-
-        printWriter.close();
+        writer.close();
         output.close();
 
 
